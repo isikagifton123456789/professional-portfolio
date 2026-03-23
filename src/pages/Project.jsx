@@ -7,7 +7,8 @@ import amNexusCapitalImg from "../assets/AmNexusCapital.png";
 import verydormImg from "../assets/verydorm.png";
 import spamDetectorVideo from "../assets/sparm detector model.mp4";
 import trexCollectionImg from "../assets/ecommerce site.jpg";
-const PRIMARY = "#8c2bee";
+const PRIMARY = "#7c5cff";
+const SECONDARY = "#12c2ff";
 
 const NAV_LINKS = [
    {label: "Home",      to: "/"           },
@@ -59,16 +60,19 @@ export default function Projects() {
   }, []);
 
   const dark    = theme === "dark";
-  const bg      = dark ? "#0d0f14" : "#f7f6f8";
-  const surface = dark ? "#13151b" : "#ffffff";
-  const border  = dark ? "#1e2128" : "#e2e8f0";
-  const text    = dark ? "#f1f5f9" : "#0f172a";
-  const muted   = dark ? "#64748b" : "#64748b";
+  const bg      = dark ? "#090b12" : "#f4f7ff";
+  const surface = dark ? "rgba(17,21,32,0.8)" : "rgba(255,255,255,0.82)";
+  const border  = dark ? "rgba(124,92,255,0.24)" : "rgba(124,92,255,0.2)";
+  const text    = dark ? "#eef2ff" : "#0f172a";
+  const muted   = dark ? "#9aa7bd" : "#61708a";
+  const bgGradient = dark
+    ? "linear-gradient(135deg, #090b12 0%, #0f1020 50%, #0a1128 100%)"
+    : "linear-gradient(135deg, #eef4ff 0%, #f8fbff 50%, #eef2ff 100%)";
 
   const displayed = filter === "All Projects" ? PROJECTS : PROJECTS.filter(p => p.tags.includes(filter));
 
   return (
-    <div style={{ fontFamily: "Inter, sans-serif", backgroundColor: bg, color: text, minHeight: "100vh", width: "100%" }}>
+    <div style={{ fontFamily: "Inter, sans-serif", background: bgGradient, color: text, minHeight: "100vh", width: "100%", position: "relative", overflow: "hidden" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
@@ -76,13 +80,33 @@ export default function Projects() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html, body, #root { width: 100%; min-height: 100vh; }
         @keyframes ping { 75%,100%{transform:scale(2);opacity:0} }
-        .proj-card { transition: transform 0.2s, border-color 0.2s; }
-        .proj-card:hover { transform: translateY(-4px); border-color: ${PRIMARY} !important; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulseGlow { 0%,100% { box-shadow: 0 0 0 0 rgba(18,194,255,0.2); } 50% { box-shadow: 0 0 0 10px rgba(18,194,255,0); } }
+        @keyframes shimmer { 0% { transform: translateX(-130%); } 100% { transform: translateX(140%); } }
+        .bg-orb { position: absolute; border-radius: 9999px; filter: blur(48px); pointer-events: none; z-index: 0; }
+        .proj-card { transition: transform 0.3s ease, border-color 0.25s ease, box-shadow 0.25s ease; backdrop-filter: blur(10px); animation: fadeUp 0.55s ease both; }
+        .proj-card:hover { transform: translateY(-6px) scale(1.01); border-color: ${PRIMARY} !important; box-shadow: 0 16px 34px rgba(10, 14, 28, 0.22); }
         .proj-card:hover .card-title { color: ${PRIMARY}; }
-        .filter-btn:hover { border-color: ${PRIMARY} !important; color: ${PRIMARY} !important; }
+        .proj-card .media { transition: transform 0.45s ease; }
+        .proj-card:hover .media { transform: scale(1.06); }
+        .filter-btn:hover { border-color: ${PRIMARY} !important; color: ${PRIMARY} !important; transform: translateY(-1px); }
         .footer-a { text-decoration: none; transition: color 0.18s; }
         .footer-a:hover { color: ${PRIMARY} !important; }
+        .hero-chip { animation: pulseGlow 2.6s infinite; }
+        .hero-title-accent { background: linear-gradient(120deg, ${PRIMARY}, ${SECONDARY}); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .shimmer { position: relative; overflow: hidden; }
+        .shimmer::after { content: ""; position: absolute; top: 0; left: 0; width: 45%; height: 100%; background: linear-gradient(110deg, transparent, rgba(255,255,255,0.24), transparent); animation: shimmer 2.8s infinite; }
       `}</style>
+
+      <div
+        className="bg-orb"
+        style={{ width: 260, height: 260, top: -70, right: -90, background: "rgba(124,92,255,0.28)", animation: "float 6s ease-in-out infinite" }}
+      />
+      <div
+        className="bg-orb"
+        style={{ width: 210, height: 210, bottom: 120, left: -80, background: "rgba(18,194,255,0.22)", animation: "float 7.5s ease-in-out infinite" }}
+      />
 
       <Navbar
         logo={{ text:"GIFTON ISIKA MWANGE", icon: "terminal" }}
@@ -93,15 +117,15 @@ export default function Projects() {
         onThemeToggle={() => setTheme(t => t === "dark" ? "light" : "dark")}
       />
 
-      <main style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 24px 80px" }}>
+      <main style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 24px 80px", position: "relative", zIndex: 1 }}>
 
         {/* Header */}
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: 20, marginBottom: 44 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: 20, marginBottom: 44, background: surface, border: `1px solid ${border}`, borderRadius: 18, padding: "26px 24px" }}>
           <div style={{ maxWidth: 600 }}>
-            <h1 style={{ fontSize: "clamp(28px,5vw,48px)", fontWeight: 900, letterSpacing: "-0.04em", marginBottom: 12 }}>Featured Projects</h1>
+            <h1 style={{ fontSize: "clamp(28px,5vw,48px)", fontWeight: 900, letterSpacing: "-0.04em", marginBottom: 12 }}>Featured <span className="hero-title-accent">Projects</span></h1>
             <p style={{ fontSize: 16, color: muted, lineHeight: 1.72 }}>Projects that reflect my passion for backend engineering, structured problem-solving, and building systems that align with real business needs.</p>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, fontWeight: 600, color: muted, backgroundColor: surface, padding: "8px 16px", borderRadius: 9999, border: `1px solid ${border}`, whiteSpace: "nowrap" }}>
+          <div className="hero-chip" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, fontWeight: 600, color: muted, backgroundColor: dark ? "rgba(13,18,30,0.85)" : "rgba(255,255,255,0.85)", padding: "8px 16px", borderRadius: 9999, border: `1px solid ${border}`, whiteSpace: "nowrap" }}>
             <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
               <span style={{ position: "absolute", inset: 0, borderRadius: "50%", backgroundColor: "#10b981", animation: "ping 1.4s infinite" }} />
               <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#10b981", display: "inline-block" }} />
@@ -114,7 +138,7 @@ export default function Projects() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
           {FILTERS.map(f => (
             <button key={f} className="filter-btn" onClick={() => setFilter(f)}
-              style={{ padding: "7px 18px", fontSize: 13, fontWeight: 600, borderRadius: 8, border: `1px solid ${f === filter ? PRIMARY : border}`, backgroundColor: f === filter ? PRIMARY : surface, color: f === filter ? "#fff" : muted, cursor: "pointer", transition: "all 0.18s" }}>
+              style={{ padding: "8px 18px", fontSize: 13, fontWeight: 600, borderRadius: 9999, border: `1px solid ${f === filter ? PRIMARY : border}`, background: f === filter ? `linear-gradient(120deg, ${PRIMARY}, ${SECONDARY})` : surface, color: f === filter ? "#fff" : muted, cursor: "pointer", transition: "all 0.2s", boxShadow: f === filter ? "0 10px 24px rgba(124,92,255,0.28)" : "none" }}>
               {f}
             </button>
           ))}
@@ -122,17 +146,18 @@ export default function Projects() {
 
         {/* Grid */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 24 }}>
-          {displayed.map(({ tags, title, desc, image, images, badge, live, github, mediaType }) => {
+          {displayed.map(({ tags, title, desc, image, images, badge, live, github, mediaType }, idx) => {
             const hasMultipleImages = images && images.length > 1;
             const currentImageIndex = imageIndices[title] || 0;
             const currentImage = images ? images[currentImageIndex] : image;
             return (
             <div key={title} className="proj-card"
-              style={{ display: "flex", flexDirection: "column", backgroundColor: surface, borderRadius: 12, border: `1px solid ${border}`, overflow: "hidden" }}>
+              style={{ display: "flex", flexDirection: "column", backgroundColor: surface, borderRadius: 16, border: `1px solid ${border}`, overflow: "hidden", animationDelay: `${idx * 90}ms` }}>
               <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
                 {mediaType === "video" ? (
                   <video
                     src={image}
+                    className="media"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     autoPlay
                     muted
@@ -141,8 +166,9 @@ export default function Projects() {
                     preload="metadata"
                   />
                 ) : (
-                  <img src={currentImage} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={currentImage} alt={title} className="media" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 )}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.24), transparent 60%)", pointerEvents: "none" }} />
                 {badge && <span style={{ position: "absolute", top: 10, right: 10, backgroundColor: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)", color: "#fff", fontSize: 9, fontWeight: 700, padding: "4px 8px", borderRadius: 4, textTransform: "uppercase", letterSpacing: "0.06em" }}>{badge}</span>}
                 {hasMultipleImages && (
                   <div style={{ position: "absolute", bottom: 10, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 6 }}>
@@ -178,7 +204,7 @@ export default function Projects() {
       rel="noopener noreferrer"
       style={{ flex: 1, textDecoration: "none" }}
     >
-      <button
+      <button className="shimmer"
         style={{
           width: "100%",
           display: "flex",
@@ -189,7 +215,7 @@ export default function Projects() {
           fontWeight: 700,
           padding: "9px",
           borderRadius: 7,
-          backgroundColor: PRIMARY,
+          background: `linear-gradient(120deg, ${PRIMARY}, ${SECONDARY})`,
           color: "#fff",
           border: "none",
           cursor: "pointer"
@@ -265,7 +291,7 @@ export default function Projects() {
   </button>
 </a>
             <button onClick={() => navigate("/experience")}
-              style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 26px", borderRadius: 8, backgroundColor: PRIMARY, color: "#fff", fontWeight: 700, border: "none", cursor: "pointer", fontSize: 14 }}>
+              style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 26px", borderRadius: 8, background: `linear-gradient(120deg, ${PRIMARY}, ${SECONDARY})`, color: "#fff", fontWeight: 700, border: "none", cursor: "pointer", fontSize: 14, boxShadow: "0 10px 28px rgba(80,125,255,0.26)" }}>
               View Experience <span className="material-symbols-outlined">arrow_forward</span>
             </button>
           </div>
