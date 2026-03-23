@@ -15,16 +15,16 @@ const NAV_LINKS = [
   { label: "Experience", to: "/experience" },
 ];
 const PROJECTS = [
-   {tags: ["Python","PostgreSQL","NextJs","Flask"], title: "WATTCHAIN",badge: "Production",
+   {tags: ["Python","PostgreSQL","NextJs","Flask","FastAPI","IoT"], title: "WATTCHAIN",badge: "Production",
     desc: "An IoT P2P Green Energy Marketplace connecting households with installed solar panels enabling them trade extra solar energy going into waste, built with IoT, Python, React, Tailwind CSS, and Flask.",
     images: [wattchainImg1, wattchainImg2]},
     { tags: ["React Js","Node.js","Firebase"], title: "AM NEXUS CAPITAL",badge: "Live",
     desc: "Full-stack boutique advisory firm connecting ambitious enterprises with institutional capital.",
     image: amNexusCapitalImg},
-  { tags: ["Python","FastAPI","PostgreSQL"], title: "VERYDORM",badge: "Live",
+  { tags: ["React Js","Node.js","Firebase"], title: "VERYDORM",badge: "Live",
     desc: "property management with Verydorm where blockchain meets trust, security, and prosperity.",
     image: verydormImg },
-  { tags: ["Next Js","Node Js","MongoDBP"], title: "SPAM DETECTOR MODEL",badge: "Production",
+  { tags: ["scikit-learn","Python","MongoDB","pandas","FastAPI"], title: "SPAM DETECTOR MODEL",badge: "Production",
     desc: "A machine learning model for detecting spam emails.",
     image: spamDetectorVideo,
     mediaType: "video" },
@@ -85,7 +85,7 @@ export default function Projects() {
       `}</style>
 
       <Navbar
-        logo={{ text:"Gifton Isika Mwange", icon: "terminal" }}
+        logo={{ text:"GIFTON ISIKA MWANGE", icon: "terminal" }}
         links={NAV_LINKS}
         ctaLabel="Ready to collaborate"
         ctaIcon="handshake"

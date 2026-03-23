@@ -82,7 +82,7 @@ export default function Experience() {
       `}</style>
 
       <Navbar
-        logo={{ text: "Gifton Isika Mwange", icon: "terminal" }}
+        logo={{ text: "GIFTON ISIKA MWANGE", icon: "terminal" }}
         links={NAV_LINKS}
         ctaLabel="Ready to collaborate"
         ctaIcon="handshake"

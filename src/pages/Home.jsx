@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import profilePhoto from "../assets/profile.jpeg";
-import CV from "../assets/Elizabeth_Muthoni_CV  .pdf";
+import CV from "../assets/Gifton_Mwange_CV.pdf";
 const PRIMARY = "#8c2bee";
 
 const NAV_LINKS = [
@@ -251,7 +251,7 @@ export default function Home() {
       {/* ── Footer ── */}
       <footer style={{ borderTop: `1px solid ${border}`, padding: "32px 40px", backgroundColor: dark ? "rgba(19,19,22,0.6)" : "#f1f5f9", position: "relative", zIndex: 10 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
-          <p style={{ fontSize: 13, color: muted }}>© 2026 Elizabeth Julius. All rights reserved.</p>
+          <p style={{ fontSize: 13, color: muted }}>© 2026 Gifton Isika. All rights reserved.</p>
          <div style={{ display: "flex", gap: 24 }}>
   {[
     { 
