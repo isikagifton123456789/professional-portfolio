@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import profilePhoto from "../assets/profile.jpeg";
 
 
-const PRIMARY = "#8c2bee";
+const PRIMARY = "#00b894";
 
 const NAV_LINKS = [
   { label: "Home",       to: "/"           },
@@ -57,7 +57,7 @@ export default function Experience() {
   const dark    = theme === "dark";
   const bg      = dark ? "#110d1a" : "#f7f6f8";
   const surface = dark ? "#1a1525" : "#ffffff";
-  const border  = dark ? "rgba(140,43,238,0.12)" : "#e2e8f0";
+  const border  = dark ? "rgba(0,184,148,0.14)" : "#e2e8f0";
   const text    = dark ? "#f1f5f9" : "#0f172a";
   const muted   = dark ? "#64748b" : "#64748b";
   const subtle  = dark ? "#1e293b" : "#f1f5f9";
@@ -71,7 +71,7 @@ export default function Experience() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html, body, #root { width: 100%; min-height: 100vh; }
         .exp-scroll::-webkit-scrollbar { width: 4px; }
-        .exp-scroll::-webkit-scrollbar-thumb { background: rgba(140,43,238,0.25); border-radius: 6px; }
+        .exp-scroll::-webkit-scrollbar-thumb { background: rgba(0,184,148,0.25); border-radius: 6px; }
         .skill-tag { transition: border-color 0.18s, color 0.18s; cursor: default; }
         .skill-tag:hover { border-color: ${PRIMARY} !important; color: ${PRIMARY} !important; }
         .cta-outline { transition: all 0.18s; }
@@ -118,12 +118,12 @@ export default function Experience() {
                 {EXPERIENCES.map(({ title, period, company, icon, active, bullets, text: bodyText }) => (
                   <div key={title} className="timeline-item" style={{ position: "relative", paddingLeft: 28, paddingBottom: 40 }}>
                     {/* Dot */}
-                    <div style={{ position: "absolute", left: -8, top: 5, width: 14, height: 14, borderRadius: "50%", backgroundColor: active ? PRIMARY : "rgba(140,43,238,0.3)", border: `3px solid ${bg}`, transition: "background 0.2s" }} />
+                    <div style={{ position: "absolute", left: -8, top: 5, width: 14, height: 14, borderRadius: "50%", backgroundColor: active ? PRIMARY : "rgba(0,184,148,0.3)", border: `3px solid ${bg}`, transition: "background 0.2s" }} />
 
                     {/* Title + period */}
                     <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 6, marginBottom: 6 }}>
                       <h4 style={{ fontSize: 16, fontWeight: 700, color: text }}>{title}</h4>
-                      <span style={{ fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 9999, backgroundColor: active ? "rgba(140,43,238,0.12)" : subtle, color: active ? PRIMARY : muted, border: active ? "1px solid rgba(140,43,238,0.22)" : "none" }}>
+                      <span style={{ fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 9999, backgroundColor: active ? "rgba(0,184,148,0.12)" : subtle, color: active ? PRIMARY : muted, border: active ? "1px solid rgba(0,184,148,0.22)" : "none" }}>
                         {period}
                       </span>
                     </div>
@@ -160,7 +160,7 @@ export default function Experience() {
               </div>
 
               {/* Skill bars */}
-              <div style={{ backgroundColor: "rgba(140,43,238,0.06)", padding: 24, borderRadius: 12, border: `1px solid rgba(140,43,238,0.12)` }}>
+              <div style={{ backgroundColor: "rgba(0,184,148,0.06)", padding: 24, borderRadius: 12, border: `1px solid rgba(0,184,148,0.12)` }}>
                 <p style={{ fontSize: 9, fontWeight: 800, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 18 }}>Core Competencies</p>
                 {SKILL_BARS.map(({ label, pct }) => (
                   <div key={label} style={{ marginBottom: 16 }}>
@@ -169,7 +169,7 @@ export default function Experience() {
                       <span style={{ color: PRIMARY, fontWeight: 700 }}>{pct}%</span>
                     </div>
                     <div style={{ height: 5, width: "100%", backgroundColor: subtle, borderRadius: 9999, overflow: "hidden" }}>
-                      <div style={{ height: "100%", width: `${pct}%`, background: `linear-gradient(to right, ${PRIMARY}, #b06bf5)`, borderRadius: 9999 }} />
+                      <div style={{ height: "100%", width: `${pct}%`, background: `linear-gradient(to right, ${PRIMARY}, #00d4ff)`, borderRadius: 9999 }} />
                     </div>
                   </div>
                 ))}
@@ -196,7 +196,7 @@ export default function Experience() {
           </div>
 
           {/* CTA Banner */}
-          <div style={{ marginTop: 64, padding: 32, borderRadius: 14, background: `linear-gradient(120deg, rgba(140,43,238,0.18) 0%, transparent 100%)`, border: `1px solid rgba(140,43,238,0.15)`, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+          <div style={{ marginTop: 64, padding: 32, borderRadius: 14, background: `linear-gradient(120deg, rgba(0,184,148,0.18) 0%, transparent 100%)`, border: `1px solid rgba(0,184,148,0.15)`, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
             <div>
               <h4 style={{ fontSize: 20, fontWeight: 700, color: text, marginBottom: 6 }}>Want to see my code in action?</h4>
               <p style={{ color: muted, fontSize: 14 }}>Explore my portfolio of architectural designs and full-stack projects.</p>

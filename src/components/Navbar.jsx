@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const PRIMARY = "#8c2bee";
+const PRIMARY = "#00b894";
 
 const THEMES = {
   dark:  { bg: "rgba(10,10,12,0.95)", border: "#1f1f23", text: "#f1f5f9", muted: "#64748b", surface: "#0f0f12" },
@@ -65,7 +65,7 @@ export default function Navbar({
           transition: background 0.15s, color 0.15s;
         }
         .nb-mob-link:hover {
-          background: rgba(140,43,238,0.08) !important;
+          background: rgba(0,184,148,0.08) !important;
           color: ${PRIMARY} !important;
         }
 
@@ -247,7 +247,7 @@ export default function Navbar({
               <div style={{
                 width: 34, height: 34,
                 borderRadius: "50%",
-                border: `2px solid rgba(140,43,238,0.45)`,
+                border: `2px solid rgba(0,184,148,0.45)`,
                 overflow: "hidden",
                 flexShrink: 0,
               }}>
@@ -301,7 +301,7 @@ export default function Navbar({
                   fontSize: 15,
                   fontWeight: isActive(to) ? 700 : 500,
                   color: isActive(to) ? PRIMARY : t.muted,
-                  backgroundColor: isActive(to) ? "rgba(140,43,238,0.08)" : "transparent",
+                  backgroundColor: isActive(to) ? "rgba(0,184,148,0.08)" : "transparent",
                 }}
               >
                 {label}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import profilePhoto from "../assets/profile.jpeg";
 import CV from "../assets/Gifton_Mwange_CV.pdf";
-const PRIMARY = "#8c2bee";
+const PRIMARY = "#00b894";
 
 const NAV_LINKS = [
   { label: "Home",      to: "/"           },
@@ -66,12 +66,12 @@ export default function Home() {
         @keyframes ringPing { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(1.12);opacity:0} }
 
         .cta-primary { transition: box-shadow 0.2s; }
-        .cta-primary:hover { box-shadow: 0 0 28px rgba(140,43,238,0.5); }
-        .cta-secondary:hover { background: rgba(140,43,238,0.06) !important; }
+        .cta-primary:hover { box-shadow: 0 0 28px rgba(0,184,148,0.45); }
+        .cta-secondary:hover { background: rgba(0,184,148,0.06) !important; }
         .tech-chip { opacity: 0.55; transition: opacity 0.2s; }
         .tech-chip:hover { opacity: 1; }
         .phi-card { transition: border-color 0.2s, transform 0.2s; }
-        .phi-card:hover { border-color: rgba(140,43,238,0.5) !important; transform: translateY(-2px); }
+        .phi-card:hover { border-color: rgba(0,184,148,0.5) !important; transform: translateY(-2px); }
         .footer-a { transition: color 0.18s; text-decoration: none; }
         .footer-a:hover { color: ${PRIMARY} !important; }
         .profile-img { animation: floatImg 5s ease-in-out infinite; }
@@ -86,7 +86,7 @@ export default function Home() {
       `}</style>
 
       {/* Ambient glow */}
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 80% 55% at 50% 0%, rgba(140,43,238,0.1) 0%, transparent 70%)", zIndex: 0 }} />
+      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 80% 55% at 50% 0%, rgba(0,184,148,0.1) 0%, transparent 70%)", zIndex: 0 }} />
 
       <Navbar
         logo={{ text: "GIFTON ISIKA MWANGE", icon: "terminal" }}
@@ -109,7 +109,7 @@ export default function Home() {
             <div className="hero-text" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
 
               {/* Badge */}
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "5px 14px", borderRadius: 9999, border: "1px solid rgba(140,43,238,0.25)", backgroundColor: "rgba(140,43,238,0.06)", color: PRIMARY, fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 28 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "5px 14px", borderRadius: 9999, border: "1px solid rgba(0,184,148,0.25)", backgroundColor: "rgba(0,184,148,0.06)", color: PRIMARY, fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 28 }}>
                 <span style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: PRIMARY, display: "inline-block", animation: "gpulse 2s infinite" }} />
                 Open for collaborations and opportunities
               </div>
@@ -183,13 +183,13 @@ export default function Home() {
             <div className="profile-wrap" style={{ flexShrink: 0, position: "relative", width: 320, height: 320 }}>
 
               {/* Outer decorative pulsing ring */}
-              <div className="profile-ring" style={{ position: "absolute", inset: -12, borderRadius: "50%", border: "2px solid rgba(140,43,238,0.35)" }} />
+              <div className="profile-ring" style={{ position: "absolute", inset: -12, borderRadius: "50%", border: "2px solid rgba(0,184,148,0.35)" }} />
 
               {/* Static ring */}
-              <div style={{ position: "absolute", inset: -6, borderRadius: "50%", border: "1px solid rgba(140,43,238,0.18)" }} />
+              <div style={{ position: "absolute", inset: -6, borderRadius: "50%", border: "1px solid rgba(0,184,148,0.18)" }} />
 
               {/* Glow blob behind image */}
-              <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "radial-gradient(circle at center, rgba(140,43,238,0.25) 0%, transparent 70%)", filter: "blur(20px)" }} />
+              <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "radial-gradient(circle at center, rgba(0,184,148,0.25) 0%, transparent 70%)", filter: "blur(20px)" }} />
 
               {/* Photo */}
               <img
@@ -202,10 +202,10 @@ export default function Home() {
                   borderRadius: "50%",
                   objectFit: "cover",
                   objectPosition: "top",
-                  border: `3px solid rgba(140,43,238,0.5)`,
+                  border: `3px solid rgba(0,184,148,0.5)`,
                   position: "relative",
                   zIndex: 1,
-                  boxShadow: "0 0 40px rgba(140,43,238,0.3), 0 20px 60px rgba(0,0,0,0.4)",
+                  boxShadow: "0 0 40px rgba(0,184,148,0.28), 0 20px 60px rgba(0,0,0,0.4)",
                 }}
               />
 
@@ -238,7 +238,7 @@ export default function Home() {
           {CARDS.map(({ icon, title, desc }) => (
             <div key={title} className="phi-card"
               style={{ padding: 32, borderRadius: 10, backgroundColor: surface, border: `1px solid ${border}` }}>
-              <div style={{ width: 46, height: 46, borderRadius: 8, backgroundColor: "rgba(140,43,238,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: PRIMARY, marginBottom: 20 }}>
+              <div style={{ width: 46, height: 46, borderRadius: 8, backgroundColor: "rgba(0,184,148,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: PRIMARY, marginBottom: 20 }}>
                 <span className="material-symbols-outlined" style={{ fontSize: 22 }}>{icon}</span>
               </div>
               <h3 style={{ fontSize: 17, fontWeight: 700, color: text, marginBottom: 10 }}>{title}</h3>
