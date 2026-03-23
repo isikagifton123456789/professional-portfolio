@@ -7,8 +7,8 @@ import amNexusCapitalImg from "../assets/AmNexusCapital.png";
 import verydormImg from "../assets/verydorm.png";
 import spamDetectorVideo from "../assets/sparm detector model.mp4";
 import trexCollectionImg from "../assets/ecommerce site.jpg";
-const PRIMARY = "#7c5cff";
-const SECONDARY = "#12c2ff";
+const PRIMARY = "#00b894";
+const SECONDARY = "#00d4ff";
 
 const NAV_LINKS = [
    {label: "Home",      to: "/"           },
@@ -62,7 +62,7 @@ export default function Projects() {
   const dark    = theme === "dark";
   const bg      = dark ? "#090b12" : "#f4f7ff";
   const surface = dark ? "rgba(17,21,32,0.8)" : "rgba(255,255,255,0.82)";
-  const border  = dark ? "rgba(124,92,255,0.24)" : "rgba(124,92,255,0.2)";
+  const border  = dark ? "rgba(0,184,148,0.24)" : "rgba(0,184,148,0.2)";
   const text    = dark ? "#eef2ff" : "#0f172a";
   const muted   = dark ? "#9aa7bd" : "#61708a";
   const bgGradient = dark
@@ -101,7 +101,7 @@ export default function Projects() {
 
       <div
         className="bg-orb"
-        style={{ width: 260, height: 260, top: -70, right: -90, background: "rgba(124,92,255,0.28)", animation: "float 6s ease-in-out infinite" }}
+        style={{ width: 260, height: 260, top: -70, right: -90, background: "rgba(0,184,148,0.28)", animation: "float 6s ease-in-out infinite" }}
       />
       <div
         className="bg-orb"
@@ -138,7 +138,7 @@ export default function Projects() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 36 }}>
           {FILTERS.map(f => (
             <button key={f} className="filter-btn" onClick={() => setFilter(f)}
-              style={{ padding: "8px 18px", fontSize: 13, fontWeight: 600, borderRadius: 9999, border: `1px solid ${f === filter ? PRIMARY : border}`, background: f === filter ? `linear-gradient(120deg, ${PRIMARY}, ${SECONDARY})` : surface, color: f === filter ? "#fff" : muted, cursor: "pointer", transition: "all 0.2s", boxShadow: f === filter ? "0 10px 24px rgba(124,92,255,0.28)" : "none" }}>
+              style={{ padding: "8px 18px", fontSize: 13, fontWeight: 600, borderRadius: 9999, border: `1px solid ${f === filter ? PRIMARY : border}`, background: f === filter ? `linear-gradient(120deg, ${PRIMARY}, ${SECONDARY})` : surface, color: f === filter ? "#fff" : muted, cursor: "pointer", transition: "all 0.2s", boxShadow: f === filter ? "0 10px 24px rgba(0,184,148,0.28)" : "none" }}>
               {f}
             </button>
           ))}
@@ -192,7 +192,7 @@ export default function Projects() {
               </div>
               <div style={{ padding: 22, flex: 1, display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
-                  {tags.map(t => <span key={t} style={{ fontSize: 9, fontWeight: 700, padding: "3px 8px", borderRadius: 4, backgroundColor: "rgba(140,43,238,0.1)", color: PRIMARY, border: "1px solid rgba(140,43,238,0.2)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{t}</span>)}
+                  {tags.map(t => <span key={t} style={{ fontSize: 9, fontWeight: 700, padding: "3px 8px", borderRadius: 4, backgroundColor: "rgba(0,184,148,0.1)", color: PRIMARY, border: "1px solid rgba(0,184,148,0.25)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{t}</span>)}
                 </div>
                 <h3 className="card-title" style={{ fontSize: 17, fontWeight: 700, color: text, marginBottom: 8, transition: "color 0.18s" }}>{title}</h3>
                 <p style={{ fontSize: 13, color: muted, lineHeight: 1.7, flex: 1 }}>{desc}</p>
@@ -291,7 +291,7 @@ export default function Projects() {
   </button>
 </a>
             <button onClick={() => navigate("/experience")}
-              style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 26px", borderRadius: 8, background: `linear-gradient(120deg, ${PRIMARY}, ${SECONDARY})`, color: "#fff", fontWeight: 700, border: "none", cursor: "pointer", fontSize: 14, boxShadow: "0 10px 28px rgba(80,125,255,0.26)" }}>
+              style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 26px", borderRadius: 8, background: `linear-gradient(120deg, ${PRIMARY}, ${SECONDARY})`, color: "#fff", fontWeight: 700, border: "none", cursor: "pointer", fontSize: 14, boxShadow: "0 10px 28px rgba(0,184,148,0.3)" }}>
               View Experience <span className="material-symbols-outlined">arrow_forward</span>
             </button>
           </div>
